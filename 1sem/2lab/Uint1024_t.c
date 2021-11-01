@@ -156,8 +156,7 @@ void scanfValue(struct uint1024_t *x)
     *x = bigNull();
     char str[309];
     scanf("%s", str);
-    int n = strlen(str);
-    for (int i = 0; i < n; ++i)
+    for (int i = 0; str[i] != '\0'; ++i)
     {
         *x = mult(*x, 10);
         *x = addOp(*x, fromUint(str[i] - '0'));
