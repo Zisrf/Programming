@@ -6,22 +6,22 @@ int isSeparating(char c)
 	return c == ' ' || c == '\n' || c == '\t' || c == '.' || c == ',' || c == '!' || c == '?';
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
 	if (argc != 3)
 	{
 		printf("Error: invalid number of arguments");
 		return 1;
 	}
-	const char* option = argv[1];
-	const char* fileName = argv[2];
-	FILE* file = fopen(fileName, "r");
+	const char *option = argv[1];
+	const char *fileName = argv[2];
+	FILE *file = fopen(fileName, "r");
 	if (!file)
 	{
 		printf("Error: unable to open file");
 		return 1;
 	}
-		
+
 	if (strcmp(option, "-l") == 0 || strcmp(option, "--lines") == 0)
 	{
 		int lineCount = 0;
