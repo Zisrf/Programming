@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 		printf("Error: invalid number of arguments");
 		return 1;
 	}
-	
+
 	const char *option = argv[1];
 	const char *fileName = argv[2];
 	FILE *file = fopen(fileName, "r");

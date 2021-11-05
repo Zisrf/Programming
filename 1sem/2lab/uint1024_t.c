@@ -148,7 +148,6 @@ void printfValue(struct uint1024_t x)
         if (isStarted)
             printf("%c", digits[j]);
     }
-    printf("\n");
 }
 
 void scanfValue(struct uint1024_t *x)
