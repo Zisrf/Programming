@@ -2,3 +2,4 @@
 ### Semester 1:
 * [WordCount utility](1sem/1lab)
 * [Uint1024_t data type](1sem/2lab)
+* -[Server log analysis](1sem/3lab)-

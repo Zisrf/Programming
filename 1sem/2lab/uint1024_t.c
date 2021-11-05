@@ -163,35 +163,46 @@ void scanfValue(struct uint1024_t *x)
     }
 }
 
+struct uint1024_t fromStr(char *str)
+{
+    struct uint1024_t res = bigNull();
+    for (int i = 0; str[i] != '\0'; ++i)
+    {
+        res = mult(res, 10);
+        res = addOp(res, fromUint(str[i] - '0'));
+    }
+    return res;
+}
+
 int main(int argc, char *argv[])
 {
-    struct uint1024_t A;
-    struct uint1024_t B;
+    if (argc != 4)
+    {
+        printf("Error: invalid number of arguments");
+        return 1;
+    }
 
-    printf("A = ");
-    scanfValue(&A);
-    printf("B = ");
-    scanfValue(&B);
+    struct uint1024_t A = fromStr(argv[1]);
+    char sign = argv[2][0];
+    struct uint1024_t B = fromStr(argv[3]);
 
-    printf("A + B = ");
-    printfValue(addOp(A, B));
+    if (sign == '+')
+    {
+        printfValue(addOp(A, B));
+    }
+    else if (sign == '-')
+    {
+        printfValue(subtrOp(A, B));
+    }
+    else if (sign == 'x')
+    {
+        printfValue(multOp(A, B));
+    }
+    else
+    {
+        printf("Error: invalid sign");
+        return 1;
+    }
 
-    printf("A - B = ");
-    printfValue(subtrOp(A, B));
-
-    printf("A * B = ");
-    printfValue(multOp(A, B));
-
-    int x, n;
-    printf("x = ");
-    scanf("%d", &x);
-    printf("n = ");
-    scanf("%d", &n);
-    A = fromUint(1);
-    B = fromUint(x);
-    for (int i = 0; i < n; ++i)
-        A = multOp(A, B);
-    printf("x ^ n = ");
-    printfValue(A);
     return 0;
 }
