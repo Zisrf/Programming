@@ -182,7 +182,7 @@ int main(int argc, char *argv[])
     }
 
     struct uint1024_t A = fromStr(argv[1]);
-    char sign = argv[2][0];
+    char sign = *argv[2];
     struct uint1024_t B = fromStr(argv[3]);
 
     if (sign == '+')
