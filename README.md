@@ -8,3 +8,11 @@
 * File archiver
 ### Semester 2 (C++)
 * \.\.\.
+### Semester 3 (OOP: C#)
+* \.\.\.
+### Semester 4 (Software design: Java)
+* \.\.\.
+### Semester 5 (Frontend: CSS, JavaScript)
+* \.\.\.
+### Semester 6 (Backend: JavaScript)
+* \.\.\.
