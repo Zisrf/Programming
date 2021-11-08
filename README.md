@@ -2,7 +2,7 @@
 ### Semester 1 (C)
 * [WordCount utility](1sem/1lab)
 * [Uint1024_t data type](1sem/2lab)
-* Server log analysis
+* [Server log analysis](1sem/3lab)
 * MP3 meta-info editor
 * Game of Life
 * File archiver
