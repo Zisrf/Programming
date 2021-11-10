@@ -2,19 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-void parse(char *str, long long *time, int *errorCode)
+void parseTime(char *str, long long *time)
 {
-    int lastQuotPos, len = 0;
-    for (int i = 0; str[i] != '\0'; ++i)
-    {
-        ++len;
-        if (str[i] == '\"')
-            lastQuotPos = i;
-    }
-    *errorCode = 0;
-    for (int i = lastQuotPos + 2; i < len && str[i] >= '0' && str[i] <= '9'; ++i)
-        *errorCode = 10 * (*errorCode) + str[i] - '0';
-
     int date;
     char month[4];
     int year;
@@ -26,7 +15,7 @@ void parse(char *str, long long *time, int *errorCode)
     sscanf(str, "%*s - - [%d/%3s/%d:%d:%d:%d %c%2d%2d", &date, month, &year, &hour, &minute, &second, &sign, &dh, &dm);
 
     *time = (long long)year * 365 * 24 * 60 * 60 + date * 24 * 60 * 60 + hour * 60 * 60 + minute * 60 + second;
-    
+
     if (strcmp(month, "Feb") == 0)
         *time += 31 * 24 * 60 * 60;
     else if (strcmp(month, "Mar") == 0)
@@ -60,6 +49,20 @@ void parse(char *str, long long *time, int *errorCode)
     *time += (year / 400) * 24 * 60 * 60;
 }
 
+void parseCode(char *str, int *errorCode)
+{
+    *errorCode = 0;
+    int lastQuotPos, len = 0;
+    for (int i = 0; str[i] != '\0'; ++i)
+    {
+        ++len;
+        if (str[i] == '\"')
+            lastQuotPos = i;
+    }
+    for (int i = lastQuotPos + 2; i < len && str[i] >= '0' && str[i] <= '9'; ++i)
+        *errorCode = 10 * (*errorCode) + str[i] - '0';
+}
+
 int main(int argc, char *argv[])
 {
     if (argc != 3)
@@ -84,7 +87,8 @@ int main(int argc, char *argv[])
     char str[1024];
     while (fgets(str, 1024, file))
     {
-        parse(str, &time, &errorCode);
+        parseTime(str, &time);
+        parseCode(str, &errorCode);
 
         if (errorCode / 100 == 5)
         {
