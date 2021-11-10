@@ -1,5 +1,5 @@
 ## My laboratory works on programming at [ITMO University](https://itmo.ru)
-### Semester 1 (C)
+### Semester 1 (**C**)
 * [WordCount utility](https://github.com/ZISRF/Programming/tree/master/1sem/1lab)
 * [Uint1024_t data type](https://github.com/ZISRF/Programming/tree/master/1sem/2lab)
 * [Server log analysis](https://github.com/ZISRF/Programming/tree/master/1sem/3lab)
