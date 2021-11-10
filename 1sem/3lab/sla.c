@@ -72,9 +72,9 @@ int main(int argc, char *argv[])
     }
 
     int dTime = atoi(argv[2]);
-    FILE *file = fopen(argv[1], "r");
+    FILE *inputFile = fopen(argv[1], "r");
     FILE *errors5xx = fopen("errors5xx", "w");
-    if (!file || !errors5xx)
+    if (!inputFile || !errors5xx)
     {
         printf("Error: unable to open file");
         return 1;
@@ -85,7 +85,7 @@ int main(int argc, char *argv[])
     int errorCode, maxRequestsCount = 0, errors5xxCount = 0;
     long long time;
     char str[1024];
-    while (fgets(str, 1024, file))
+    while (fgets(str, 1024, inputFile))
     {
         parseTime(str, &time);
         parseCode(str, &errorCode);
@@ -112,5 +112,7 @@ int main(int argc, char *argv[])
     printf("Maximum number of requests in %d seconds: %d", dTime, maxRequestsCount);
 
     free(t);
+    fclose(inputFile);
+    fclose(errors5xx);
     return 0;
 }
