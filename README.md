@@ -6,13 +6,13 @@
 * MP3 meta-info editor
 * Game of Life
 * File archiver
-### Semester 2 (C++)
+### Semester 2 (**C++**)
 * \.\.\.
-### Semester 3 (OOP: C#)
+### Semester 3 (**OOP: C#**)
 * \.\.\.
-### Semester 4 (Software design: Java)
+### Semester 4 (**Software design: Java**)
 * \.\.\.
-### Semester 5 (Frontend: CSS, JavaScript)
+### Semester 5 (**Frontend: CSS, JavaScript**)
 * \.\.\.
-### Semester 6 (Backend: JavaScript)
+### Semester 6 (**Backend: JavaScript**)
 * \.\.\.
