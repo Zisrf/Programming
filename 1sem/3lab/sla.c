@@ -16,28 +16,28 @@ void parseTime(char *str, long long *time)
 
     *time = (long long)year * 365 * 24 * 60 * 60 + date * 24 * 60 * 60 + hour * 60 * 60 + minute * 60 + second;
 
-    if (strcmp(month, "Feb") == 0)
+    if (!strcmp(month, "Feb"))
         *time += 31 * 24 * 60 * 60;
-    else if (strcmp(month, "Mar") == 0)
-        *time += (31 + 28) * 24 * 60 * 60;
-    else if (strcmp(month, "Apr") == 0)
-        *time += (31 + 28 + 31) * 24 * 60 * 60;
-    else if (strcmp(month, "May") == 0)
-        *time += (31 + 28 + 31 + 30) * 24 * 60 * 60;
-    else if (strcmp(month, "Jun") == 0)
-        *time += (31 + 28 + 31 + 30 + 31) * 24 * 60 * 60;
-    else if (strcmp(month, "Jul") == 0)
-        *time += (31 + 28 + 31 + 30 + 31 + 30) * 24 * 60 * 60;
-    else if (strcmp(month, "Aug") == 0)
-        *time += (31 + 28 + 31 + 30 + 31 + 30 + 31) * 24 * 60 * 60;
-    else if (strcmp(month, "Sep") == 0)
-        *time += (31 + 28 + 31 + 30 + 31 + 30 + 31 + 30) * 24 * 60 * 60;
-    else if (strcmp(month, "Oct") == 0)
-        *time += (31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 31) * 24 * 60 * 60;
-    else if (strcmp(month, "Nov") == 0)
-        *time += (31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30) * 24 * 60 * 60;
-    else if (strcmp(month, "Dec") == 0)
-        *time += (31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30 + 31) * 24 * 60 * 60;
+    else if (!strcmp(month, "Mar"))
+        *time += 59 * 24 * 60 * 60;
+    else if (!strcmp(month, "Apr"))
+        *time += 90 * 24 * 60 * 60;
+    else if (!strcmp(month, "May"))
+        *time += 120 * 24 * 60 * 60;
+    else if (!strcmp(month, "Jun"))
+        *time += 151 * 24 * 60 * 60;
+    else if (!strcmp(month, "Jul"))
+        *time += 181 * 24 * 60 * 60;
+    else if (!strcmp(month, "Aug"))
+        *time += 212 * 24 * 60 * 60;
+    else if (!strcmp(month, "Sep"))
+        *time += 242 * 24 * 60 * 60;
+    else if (!strcmp(month, "Oct"))
+        *time += 273 * 24 * 60 * 60;
+    else if (!strcmp(month, "Nov"))
+        *time += 303 * 24 * 60 * 60;
+    else if (!strcmp(month, "Dec"))
+        *time += 334 * 24 * 60 * 60;
 
     if (sign == '-')
         *time -= dh * 60 * 60 + dm * 60;
@@ -74,9 +74,14 @@ int main(int argc, char *argv[])
     int dTime = atoi(argv[2]);
     FILE *inputFile = fopen(argv[1], "r");
     FILE *errors5xx = fopen("errors5xx", "w");
-    if (!inputFile || !errors5xx)
+    if (!inputFile)
     {
-        printf("Error: unable to open file");
+        printf("Error: unable to open file \"%s\"", argv[1]);
+        return 1;
+    }
+    if (!errors5xx)
+    {
+        printf("Error: unable to open file \"errors5xx\"");
         return 1;
     }
 
