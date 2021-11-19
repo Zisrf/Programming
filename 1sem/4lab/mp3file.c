@@ -122,6 +122,9 @@ void setFrame(struct mp3file *mp3, char *frameID, char *value)
     int frameSize;
     int pos = findFrame(mp3, frameID);
     int newFrameSize = 10 + strlen(value) + 1;
+    if (!strcmp(frameID, "COMM"))
+        value[3] = 0;
+
     if (pos == -1)
     {
         pos = 10;
