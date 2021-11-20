@@ -3,7 +3,6 @@
 struct mp3file
 {
     FILE *file;
-    char *name;
     char *str;
     int size;
 };
