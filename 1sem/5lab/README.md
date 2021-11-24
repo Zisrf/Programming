@@ -1,0 +1,2 @@
+## Laboratory work No. 4 "MP3 meta-info editor"
+#### The purpose of the work is to create a utility that allows you to output a file of generations of the ["Game of Life"](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) to the bmp
