@@ -3,6 +3,12 @@
 #include <string.h>
 #include "archiver.h"
 
+/**
+ * @brief Get the file size
+ *
+ * @param file link to file
+ * @return Size of file in bytes
+ */
 int getFileSize(FILE *file)
 {
     fseek(file, 0, SEEK_END);
@@ -11,6 +17,13 @@ int getFileSize(FILE *file)
     return res;
 }
 
+/**
+ * @brief Opens archive
+ *
+ * @param arc link to archive
+ * @param fileName file name
+ * @return Link to opened file
+ */
 FILE *arcOpen(struct archive *arc, char *fileName)
 {
     arc->file = fopen(fileName, "rb");
@@ -20,12 +33,26 @@ FILE *arcOpen(struct archive *arc, char *fileName)
     return arc->file;
 }
 
+/**
+ * @brief Closes archive
+ *
+ * @param arc link to archive
+ */
 void arcClose(struct archive *arc)
 {
     arc->fileName = NULL;
     fclose(arc->file);
 }
 
+/**
+ * @brief Creates new archive
+ *
+ * @param arc link to archive
+ * @param fileName archive name
+ * @param filesCount number of files
+ * @param files file names
+ * @return link to opened file
+ */
 FILE *arcCreate(struct archive *arc, char *fileName, int filesCount, char **files)
 {
     arc->file = fopen(fileName, "wb");
@@ -71,9 +98,15 @@ FILE *arcCreate(struct archive *arc, char *fileName, int filesCount, char **file
             fputc(fgetc(file), arc->file);
     }
 
+    printf("Files archived successfully");
     return arc->file;
 }
 
+/**
+ * @brief Extracts archive
+ *
+ * @param arc link to archive
+ */
 void arcExtract(struct archive *arc)
 {
     int filesCount = fgetc(arc->file);
@@ -107,8 +140,15 @@ void arcExtract(struct archive *arc)
         for (int j = 0; j < fileSize; ++j)
             fputc(fgetc(arc->file), file);
     }
+
+    printf("Files extracted successfully");
 }
 
+/**
+ * @brief Prints file names
+ *
+ * @param arc link to archive
+ */
 void arcPrint(struct archive *arc)
 {
     int filesCount = fgetc(arc->file);
