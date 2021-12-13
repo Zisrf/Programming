@@ -64,6 +64,7 @@ FILE *arcCreate(struct archive *arc, char *fileName, int filesCount, char **file
     fputc((filesCount >> 16) % 256, arc->file);
     fputc((filesCount >> 24) % 256, arc->file);
 
+    int failsCount = 0;
     FILE *file;
     int nameSize;
     int fileSize;
@@ -75,6 +76,7 @@ FILE *arcCreate(struct archive *arc, char *fileName, int filesCount, char **file
             printf("Warning: unable to open file \"%s\"\n", files[i]);
             for (int j = 0; j < 8; ++j)
                 fputc(0, arc->file);
+            ++failsCount;
             continue;
         }
 
@@ -98,7 +100,7 @@ FILE *arcCreate(struct archive *arc, char *fileName, int filesCount, char **file
             fputc(fgetc(file), arc->file);
     }
 
-    printf("Files archived successfully");
+    printf("%d files archived successfully", filesCount - failsCount);
     return arc->file;
 }
 
