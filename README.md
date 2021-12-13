@@ -5,7 +5,7 @@
 * [Server log analysis](https://github.com/ZISRF/Programming/tree/master/1sem/3lab)
 * [MP3 meta-info editor](https://github.com/ZISRF/Programming/tree/master/1sem/4lab)
 * [Game of Life](https://github.com/ZISRF/Programming/tree/master/1sem/5lab)
-* File archiver
+* [File archiver](https://github.com/ZISRF/Programming/tree/master/1sem/6lab)
 ### Semester 2 `C++`
 * \.\.\.
 ### Semester 3 `OOP: C#`
