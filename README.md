@@ -1,7 +1,7 @@
 ## My laboratory works on programming at [ITMO University](https://itmo.ru)
 ### Semester 6 `Backend: JavaScript`
 * \.\.\.
-### Semester 5 `Frontend: HTML, CSS, JavaScript`
+### Semester 5 `Frontend: HTML, CSS`
 * \.\.\.
 ### Semester 4 `Software design: Java`
 * \.\.\.
