@@ -3,7 +3,6 @@
 struct archive
 {
     FILE *file;
-    char *fileName;
 };
 
 FILE *arcOpen(struct archive *, char *);

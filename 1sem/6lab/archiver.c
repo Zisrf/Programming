@@ -29,7 +29,6 @@ FILE *arcOpen(struct archive *arc, char *fileName)
     arc->file = fopen(fileName, "rb");
     if (!arc->file)
         return NULL;
-    arc->fileName = fileName;
     return arc->file;
 }
 
@@ -40,7 +39,6 @@ FILE *arcOpen(struct archive *arc, char *fileName)
  */
 void arcClose(struct archive *arc)
 {
-    arc->fileName = NULL;
     fclose(arc->file);
 }
 
