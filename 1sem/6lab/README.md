@@ -3,7 +3,7 @@
 #### Usage:
 * In command line: archiver.exe [options]
 #### Options:
-* Archive name: --file *FILE*
+* Archive name: --file *file_name*
 * Create archive: --create [files]
 * Extract files: --extract
 * Print list of files: --list
