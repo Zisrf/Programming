@@ -9,7 +9,7 @@
 * \.\.\.
 ### Semester 2 `C++`
 * ???
-* ???
+* Custom allocator
 * Rubik's Cube solver
 * Ring buffer
 * Current exchange rate
