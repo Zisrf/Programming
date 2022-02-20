@@ -1,5 +1,4 @@
 #include "algebra.h"
-#include <algorithm>
 
 namespace Algebra
 {
