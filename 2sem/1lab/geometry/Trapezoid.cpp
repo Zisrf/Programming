@@ -25,9 +25,11 @@ namespace Geometry
 
     bool Trapezoid::isTrapezoid(const Point &p1, const Point &p2, const Point &p3, const Point &p4) const
     {
-        if (CrossProduct(Vector(p1) - Vector(p2), Vector(p3) - Vector(p4)) == 0)
+        if (CrossProduct(Vector(p1) - Vector(p2), Vector(p3) - Vector(p4)) == 0 &&
+            CrossProduct(Vector(p2) - Vector(p3), Vector(p4) - Vector(p1)) != 0)
             return true;
-        if (CrossProduct(Vector(p2) - Vector(p3), Vector(p4) - Vector(p1)) == 0)
+        if (CrossProduct(Vector(p2) - Vector(p3), Vector(p4) - Vector(p1)) == 0 &&
+            CrossProduct(Vector(p1) - Vector(p2), Vector(p3) - Vector(p4)) != 0)
             return true;
         return false;
     }
