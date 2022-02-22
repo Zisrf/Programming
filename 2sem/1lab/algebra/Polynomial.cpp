@@ -221,31 +221,49 @@ namespace Algebra
 
 	std::ostream &operator<<(std::ostream &out, const Polynomial &p)
 	{
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
+		if (p._coefficients.size() == 1)
 		{
-			if (i == 0)
+			out << p._coefficients[0];
+			return out;
+		}
+
+		bool flag = false;
+
+		if (p._coefficients[0] != 0)
+		{
+			out << p._coefficients[0];
+			flag = true;
+		}
+
+		if (flag && p._coefficients[1] > 0)
+			out << " + ";
+		else if (flag && p._coefficients[1] < 0)
+			out << " - ";
+		
+		if (p._coefficients[1] == 1)
+			out << "x";
+		else if (p._coefficients[1] != 0)
+			out << abs(p._coefficients[1]) << "*x";
+
+		for (std::size_t i = 2; i < p._coefficients.size(); ++i)
+		{
+			if (flag && p._coefficients[i] > 0)
+				out << " + ";
+			else if (flag && p._coefficients[i] < 0)
+				out << " - ";
+
+			if (p._coefficients[i] == 1)
 			{
-				out << p._coefficients[i];
+				out << "x^" << i;
+				flag = true;
 			}
-			else if (i == 1)
+			else if (p._coefficients[i] != 0)
 			{
-				if (p._coefficients[i] == 0)
-					continue;
-				else if (p._coefficients[i] > 0)
-					out << " + " << p._coefficients[i] << "*x";
-				else
-					out << " - " << p._coefficients[i] << "*x";
-			}
-			else
-			{
-				if (p._coefficients[i] == 0)
-					continue;
-				else if (p._coefficients[i] > 0)
-					out << " + " << p._coefficients[i] << "*x^" << i;
-				else
-					out << " - " << p._coefficients[i] << "*x^" << i;
+				out << abs(p._coefficients[i]) << "*x^" << i;
+				flag = true;
 			}
 		}
+
 		return out;
 	}
 }
