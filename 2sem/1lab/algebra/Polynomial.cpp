@@ -241,9 +241,15 @@ namespace Algebra
 			out << " - ";
 		
 		if (p._coefficients[1] == 1)
+		{
 			out << "x";
+			flag = true;
+		}
 		else if (p._coefficients[1] != 0)
+		{
 			out << abs(p._coefficients[1]) << "*x";
+			flag = true;
+		}
 
 		for (std::size_t i = 2; i < p._coefficients.size(); ++i)
 		{
