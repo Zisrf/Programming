@@ -235,38 +235,56 @@ namespace Algebra
 			flag = true;
 		}
 
-		if (flag && p._coefficients[1] > 0)
-			out << " + ";
-		else if (flag && p._coefficients[1] < 0)
-			out << " - ";
-		
-		if (p._coefficients[1] == 1)
+		if (flag)
 		{
-			out << "x";
-			flag = true;
+			if (p._coefficients[1] > 0)
+				out << " + ";
+			else if (p._coefficients[1] < 0)
+				out << " - ";
+			if (abs(p._coefficients[1]) == 1)
+				out << "x";
+			else if (p._coefficients[1] != 0)
+				out << abs(p._coefficients[1]) << "*x";
 		}
-		else if (p._coefficients[1] != 0)
+		else
 		{
-			out << abs(p._coefficients[1]) << "*x";
-			flag = true;
+			if (p._coefficients[1] == 1)
+			{
+				out << "x";
+				flag = true;
+			}
+			else if (p._coefficients[1] != 0)
+			{
+				out << p._coefficients[1] << "*x";
+				flag = true;
+			}
 		}
 
 		for (std::size_t i = 2; i < p._coefficients.size(); ++i)
 		{
-			if (flag && p._coefficients[i] > 0)
-				out << " + ";
-			else if (flag && p._coefficients[i] < 0)
-				out << " - ";
-
-			if (p._coefficients[i] == 1)
+			if (flag)
 			{
-				out << "x^" << i;
-				flag = true;
+				if (p._coefficients[i] > 0)
+					out << " + ";
+				else if (p._coefficients[i] < 0)
+					out << " - ";
+				if (abs(p._coefficients[i]) == 1)
+					out << "x^" << i;
+				else if (p._coefficients[i] != 0)
+					out << abs(p._coefficients[i]) << "*x^" << i;
 			}
-			else if (p._coefficients[i] != 0)
+			else
 			{
-				out << abs(p._coefficients[i]) << "*x^" << i;
-				flag = true;
+				if (p._coefficients[i] == 1)
+				{
+					out << "x^" << i;
+					flag = true;
+				}
+				else if (p._coefficients[i] != 0)
+				{
+					out << p._coefficients[i] << "*x^" << i;
+					flag = true;
+				}
 			}
 		}
 
