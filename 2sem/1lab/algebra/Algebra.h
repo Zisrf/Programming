@@ -1,16 +1,17 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include <map>
 
 namespace Algebra
 {
     class Polynomial
     {
-        std::vector<double> _coefficients;
+        std::map<std::size_t, double> _coefficients;
 
     public:
         Polynomial();
-        Polynomial(const std::vector<double> &coefficients);
+        explicit Polynomial(const std::vector<double> &coefficients);
         Polynomial(const Polynomial &p);
 
         ~Polynomial();
@@ -36,10 +37,7 @@ namespace Algebra
         Polynomial &operator-=(const Polynomial &p);
 
         Polynomial operator>>(std::size_t k) const;
-        Polynomial &operator>>=(std::size_t k);
-
         Polynomial operator<<(std::size_t k) const;
-        Polynomial &operator<<=(std::size_t k);
 
         Polynomial operator*(double num) const;
         Polynomial operator*(const Polynomial &p) const;
@@ -53,6 +51,6 @@ namespace Algebra
         friend std::ostream &operator<<(std::ostream &out, const Polynomial &p);
 
     private:
-        void fixDegree();
+        void fixCoefficients();
     };
 }

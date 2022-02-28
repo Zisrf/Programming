@@ -2,36 +2,42 @@
 
 namespace Algebra
 {
-	Polynomial::Polynomial() : _coefficients(1, 0) {}
+	Polynomial::Polynomial() : _coefficients() {}
 
-	Polynomial::Polynomial(const std::vector<double> &coefficients) : _coefficients(coefficients)
+	Polynomial::Polynomial(const std::vector<double> &coefficients)
 	{
-		if (coefficients.size() == 0)
-		{
-			std::cerr << "Incorrect polynomial" << std::endl;
-			exit(1);
-		}
-		fixDegree();
+		for (std::size_t i = 0; i < coefficients.size(); ++i)
+			_coefficients[i] = coefficients[i];
+		fixCoefficients();
 	}
 
-	Polynomial::Polynomial(const Polynomial &p) : _coefficients(p._coefficients) {}
+	Polynomial::Polynomial(const Polynomial &p)
+		: _coefficients(p._coefficients) {}
 
 	Polynomial::~Polynomial() {}
 
-	std::size_t Polynomial::Degree() const
+	void Polynomial::fixCoefficients()
 	{
-		return _coefficients.size() - 1;
+		std::vector<std::size_t> c;
+		for (auto [i, val] : _coefficients)
+			if (val == 0)
+				c.push_back(i);
+		for (auto i : c)
+			_coefficients.erase(i);
 	}
 
-	void Polynomial::fixDegree()
+	std::size_t Polynomial::Degree() const
 	{
-		while (_coefficients.size() > 1 && _coefficients.back() == 0)
-			_coefficients.pop_back();
+		if (_coefficients.empty())
+			return 0;
+		return _coefficients.rbegin()->first;
 	}
 
 	double Polynomial::operator[](std::size_t i) const
 	{
-		return _coefficients[i];
+		if (_coefficients.find(i) == _coefficients.end())
+			return 0;
+		return _coefficients.at(i);
 	}
 
 	Polynomial &Polynomial::operator=(const Polynomial &p)
@@ -54,41 +60,41 @@ namespace Algebra
 	{
 		Polynomial res(*this);
 		res._coefficients[0] += num;
+		res.fixCoefficients();
 		return res;
 	}
 
 	Polynomial Polynomial::operator+(const Polynomial &p) const
 	{
-		Polynomial res(*this);
-		if (p._coefficients.size() > res._coefficients.size())
-			res._coefficients.resize(p._coefficients.size());
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
-			res._coefficients[i] += p._coefficients[i];
-		res.fixDegree();
+		Polynomial res;
+		for (auto [i, val] : _coefficients)
+			res._coefficients[i] += val;
+		for (auto [i, val] : p._coefficients)
+			res._coefficients[i] += val;
+		res.fixCoefficients();
 		return res;
 	}
 
 	Polynomial &Polynomial::operator+=(double num)
 	{
 		_coefficients[0] += num;
+		fixCoefficients();
 		return *this;
 	}
 
 	Polynomial &Polynomial::operator+=(const Polynomial &p)
 	{
-		if (p._coefficients.size() > _coefficients.size())
-			_coefficients.resize(p._coefficients.size());
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
-			_coefficients[i] += p._coefficients[i];
-		fixDegree();
+		for (auto [i, val] : p._coefficients)
+			_coefficients[i] += val;
+		fixCoefficients();
 		return *this;
 	}
 
 	Polynomial Polynomial::operator-() const
 	{
 		Polynomial res(*this);
-		for (std::size_t i = 0; i < _coefficients.size(); ++i)
-			res._coefficients[i] *= -1;
+		for (auto [i, val] : _coefficients)
+			res._coefficients[i] = -val;
 		return res;
 	}
 
@@ -96,114 +102,100 @@ namespace Algebra
 	{
 		Polynomial res(*this);
 		res._coefficients[0] -= num;
+		res.fixCoefficients();
 		return res;
 	}
 
 	Polynomial Polynomial::operator-(const Polynomial &p) const
 	{
-		Polynomial res(*this);
-		if (p._coefficients.size() > res._coefficients.size())
-			res._coefficients.resize(p._coefficients.size());
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
-			res._coefficients[i] -= p._coefficients[i];
-		res.fixDegree();
+		Polynomial res;
+		for (auto [i, val] : _coefficients)
+			res._coefficients[i] += val;
+		for (auto [i, val] : p._coefficients)
+			res._coefficients[i] -= val;
+		res.fixCoefficients();
 		return res;
 	}
 
 	Polynomial &Polynomial::operator-=(double num)
 	{
 		_coefficients[0] -= num;
+		fixCoefficients();
 		return *this;
 	}
 
 	Polynomial &Polynomial::operator-=(const Polynomial &p)
 	{
-		if (p._coefficients.size() > _coefficients.size())
-			_coefficients.resize(p._coefficients.size());
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
-			_coefficients[i] -= p._coefficients[i];
-		fixDegree();
+		for (auto [i, val] : p._coefficients)
+			_coefficients[i] -= val;
+		fixCoefficients();
 		return *this;
 	}
 
 	Polynomial Polynomial::operator>>(std::size_t k) const
 	{
-		if (_coefficients.size() <= k)
-			return Polynomial({0});
 		Polynomial res;
-		res._coefficients = std::vector<double>(_coefficients.begin() + k, _coefficients.end());
-		res.fixDegree();
+		for (auto [i, val] : _coefficients)
+			if (i - k >= 0)
+				res._coefficients[i - k] = val;
 		return res;
-	}
-
-	Polynomial &Polynomial::operator>>=(std::size_t k)
-	{
-		if (_coefficients.size() <= k)
-			return *this = Polynomial({0});
-		_coefficients = std::vector<double>(_coefficients.begin() + k, _coefficients.end());
-		fixDegree();
-		return *this;
 	}
 
 	Polynomial Polynomial::operator<<(std::size_t k) const
 	{
-		Polynomial res(*this);
-		res._coefficients.insert(res._coefficients.begin(), k, 0);
+		Polynomial res;
+		for (auto [i, val] : _coefficients)
+			res._coefficients[i + k] = val;
 		return res;
-	}
-
-	Polynomial &Polynomial::operator<<=(std::size_t k)
-	{
-		_coefficients.insert(_coefficients.begin(), k, 0);
-		return *this;
 	}
 
 	Polynomial Polynomial::operator*(double num) const
 	{
 		Polynomial res(*this);
-		for (std::size_t i = 0; i < res._coefficients.size(); ++i)
+		for (auto [i, val] : _coefficients)
 			res._coefficients[i] *= num;
-		res.fixDegree();
+		res.fixCoefficients();
 		return res;
 	}
 
 	Polynomial Polynomial::operator*(const Polynomial &p) const
 	{
 		Polynomial res;
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
-			res += (*this << i) * p._coefficients[i];
-		res.fixDegree();
+		for (auto [i, val] : p._coefficients)
+			res += (*this << i) * val;
+		res.fixCoefficients();
 		return res;
 	}
 
 	Polynomial &Polynomial::operator*=(double num)
 	{
-		for (std::size_t i = 0; i < _coefficients.size(); ++i)
+		for (auto [i, val] : _coefficients)
 			_coefficients[i] *= num;
-		fixDegree();
+		fixCoefficients();
 		return *this;
 	}
 
 	Polynomial &Polynomial::operator*=(const Polynomial &p)
 	{
 		Polynomial res;
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
-			res += (*this << i) * p._coefficients[i];
-		res.fixDegree();
-		return *this = res;
+		for (auto [i, val] : p._coefficients)
+			res += (*this << i) * val;
+		res.fixCoefficients();
+		*this = res;
+		return *this;
 	}
 
 	Polynomial Polynomial::operator/(double num) const
 	{
 		Polynomial res(*this);
-		for (std::size_t i = 0; i < res._coefficients.size(); ++i)
+		for (auto [i, val] : res._coefficients)
 			res._coefficients[i] /= num;
 		return res;
 	}
 
 	Polynomial &Polynomial::operator/=(double num)
 	{
-		for (std::size_t i = 0; i < _coefficients.size(); ++i)
+		for (auto [i, val] : _coefficients)
 			_coefficients[i] /= num;
 		return *this;
 	}
@@ -212,82 +204,49 @@ namespace Algebra
 	{
 		std::size_t degree;
 		in >> degree;
-		p._coefficients.resize(degree + 1);
-		for (std::size_t i = 0; i < p._coefficients.size(); ++i)
+		for (std::size_t i = 0; i <= degree; ++i)
 			in >> p._coefficients[i];
-		p.fixDegree();
+		p.fixCoefficients();
 		return in;
 	}
 
 	std::ostream &operator<<(std::ostream &out, const Polynomial &p)
 	{
-		if (p._coefficients.size() == 1)
+		if (p._coefficients.empty())
 		{
-			out << p._coefficients[0];
+			out << "0";
 			return out;
 		}
-
-		bool flag = false;
-
-		if (p._coefficients[0] != 0)
+		for (auto it = p._coefficients.rbegin(); it != p._coefficients.rend(); ++it)
 		{
-			out << p._coefficients[0];
-			flag = true;
-		}
-
-		if (flag)
-		{
-			if (p._coefficients[1] > 0)
+			std::size_t i = it->first;
+			double val = it->second;
+			if (it != p._coefficients.rbegin() && val > 0)
 				out << " + ";
-			else if (p._coefficients[1] < 0)
+			else if (it != p._coefficients.rbegin() && val < 0)
 				out << " - ";
-			if (abs(p._coefficients[1]) == 1)
-				out << "x";
-			else if (p._coefficients[1] != 0)
-				out << abs(p._coefficients[1]) << "*x";
-		}
-		else
-		{
-			if (p._coefficients[1] == 1)
+			else if (val < 0)
+				out << "-";
+			if (i == 0)
 			{
-				out << "x";
-				flag = true;
+				if (val != 0 || it == p._coefficients.rend())
+					out << abs(val);
 			}
-			else if (p._coefficients[1] != 0)
+			else if (i == 1)
 			{
-				out << p._coefficients[1] << "*x";
-				flag = true;
-			}
-		}
-
-		for (std::size_t i = 2; i < p._coefficients.size(); ++i)
-		{
-			if (flag)
-			{
-				if (p._coefficients[i] > 0)
-					out << " + ";
-				else if (p._coefficients[i] < 0)
-					out << " - ";
-				if (abs(p._coefficients[i]) == 1)
-					out << "x^" << i;
-				else if (p._coefficients[i] != 0)
-					out << abs(p._coefficients[i]) << "*x^" << i;
+				if (abs(val) == 1)
+					out << "x";
+				else if (val != 0)
+					out << abs(val) << "*x";
 			}
 			else
 			{
-				if (p._coefficients[i] == 1)
-				{
+				if (abs(val) == 1)
 					out << "x^" << i;
-					flag = true;
-				}
-				else if (p._coefficients[i] != 0)
-				{
-					out << p._coefficients[i] << "*x^" << i;
-					flag = true;
-				}
+				else if (val != 0)
+					out << abs(val) << "*x^" << i;
 			}
 		}
-
 		return out;
 	}
 }
