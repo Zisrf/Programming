@@ -7,10 +7,7 @@ namespace Geometry
     Polyline::Polyline(const std::vector<Point> &points) : _points(points)
     {
         if (points.size() < 2)
-        {
-            std::cerr << "Incorrect polyline (too few points)" << std::endl;
-            exit(1);
-        }
+            throw std::logic_error("Incorrect polyline (too few points)");
     }
 
     Polyline::Polyline(const Polyline &pl) : _points(pl._points) {}

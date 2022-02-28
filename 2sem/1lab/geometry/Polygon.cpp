@@ -8,17 +8,11 @@ namespace Geometry
     Polygon::Polygon(const std::vector<Point> &points) : ClosedPolyline(points)
     {
         if (points.size() < 3)
-        {
-            std::cerr << "Incorrect polygon (too few points)" << std::endl;
-            exit(2);
-        }
+            throw std::logic_error("Incorrect polygon (too few points)");
         for (std::size_t i = 1; i < points.size(); ++i)
             for (std::size_t j = i + 2; j < points.size(); ++j)
                 if (isIntersect(points[i - 1], points[i], points[j - 1], points[j]))
-                {
-                    std::cerr << "Incorrect polygon (self intersects)" << std::endl;
-                    exit(3);
-                }
+                    throw std::logic_error("Incorrect polygon (self intersects)");
     }
 
     Polygon::Polygon(const Polygon &pg) : ClosedPolyline(pg._points) {}

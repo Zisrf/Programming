@@ -7,10 +7,7 @@ namespace Geometry
     Trapezoid::Trapezoid(const Point &p1, const Point &p2, const Point &p3, const Point &p4) : Polygon({p1, p2, p3, p4})
     {
         if (!isTrapezoid(p1, p2, p3, p4))
-        {
-            std::cerr << "Incorrect trapezoid" << std::endl;
-            exit(4);
-        }
+            throw std::logic_error("Incorrect trapezoid");
     }
 
     Trapezoid::Trapezoid(const Trapezoid &tr) : Polygon(tr._points) {}

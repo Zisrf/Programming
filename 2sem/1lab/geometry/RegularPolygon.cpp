@@ -8,10 +8,7 @@ namespace Geometry
     RegularPolygon::RegularPolygon(const std::vector<Point> &points) : Polygon(points)
     {
         if (!isRegular())
-        {
-            std::cerr << "Incorrect regular polygon" << std::endl;
-            exit(5);
-        }
+            throw std::logic_error("Incorrect regular polygon");
     }
     RegularPolygon::RegularPolygon(const RegularPolygon &rpg) : Polygon(rpg._points) {}
 
