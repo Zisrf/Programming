@@ -1,4 +1,4 @@
-#include "geometry.h"
+#include "Geometry.h"
 #include <cmath>
 
 namespace Geometry
