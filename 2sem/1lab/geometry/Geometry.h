@@ -35,8 +35,8 @@ namespace Geometry
     public:
         Vector();
         Vector(double x, double y);
-        Vector(const Point &p);
-        Vector(const Point &p1, const Point &p2);
+        explicit Vector(const Point &p);
+        explicit Vector(const Point &p1, const Point &p2);
         Vector(const Vector &v);
 
         ~Vector();
@@ -59,7 +59,7 @@ namespace Geometry
 
     public:
         Polyline();
-        Polyline(const std::vector<Point> &points);
+        explicit Polyline(const std::vector<Point> &points);
         Polyline(const Polyline &pl);
 
         ~Polyline();
@@ -75,7 +75,7 @@ namespace Geometry
     {
     public:
         ClosedPolyline();
-        ClosedPolyline(const std::vector<Point> &points);
+        explicit ClosedPolyline(const std::vector<Point> &points);
         ClosedPolyline(const ClosedPolyline &cpl);
 
         ~ClosedPolyline();
@@ -89,7 +89,7 @@ namespace Geometry
     {
     public:
         Polygon();
-        Polygon(const std::vector<Point> &points);
+        explicit Polygon(const std::vector<Point> &points);
         Polygon(const Polygon &pg);
 
         ~Polygon();
@@ -107,7 +107,7 @@ namespace Geometry
     {
     public:
         Triangle();
-        Triangle(const Point &p1, const Point &p2, const Point &p3);
+        explicit Triangle(const Point &p1, const Point &p2, const Point &p3);
         Triangle(const Triangle &t);
 
         ~Triangle();
@@ -119,7 +119,7 @@ namespace Geometry
     {
     public:
         Trapezoid();
-        Trapezoid(const Point &p1, const Point &p2, const Point &p3, const Point &p4);
+        explicit Trapezoid(const Point &p1, const Point &p2, const Point &p3, const Point &p4);
         Trapezoid(const Trapezoid &tr);
 
         ~Trapezoid();
@@ -134,7 +134,7 @@ namespace Geometry
     {
     public:
         RegularPolygon();
-        RegularPolygon(const std::vector<Point> &points);
+        explicit RegularPolygon(const std::vector<Point> &points);
         RegularPolygon(const RegularPolygon &rpg);
 
         ~RegularPolygon();
