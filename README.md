@@ -12,7 +12,7 @@
 * Custom allocator
 * Rubik's Cube solver
 * Ring buffer
-* Current exchange rate
+* [Current exchange rate](https://github.com/ZISRF/Programming/tree/master/2sem/2lab)
 * [Math classes](https://github.com/ZISRF/Programming/tree/master/2sem/1lab)
 ### Semester 1 `C`
 * [File archiver](https://github.com/ZISRF/Programming/tree/master/1sem/6lab)
