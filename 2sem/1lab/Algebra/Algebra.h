@@ -47,6 +47,8 @@ namespace Algebra
         Polynomial operator/(double num) const;
         Polynomial &operator/=(double num);
 
+        double operator()(double x) const;
+
         friend std::istream &operator>>(std::istream &in, Polynomial &p);
         friend std::ostream &operator<<(std::ostream &out, const Polynomial &p);
 

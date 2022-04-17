@@ -200,6 +200,14 @@ namespace Algebra
 		return *this;
 	}
 
+	double Polynomial::operator()(double x) const
+	{
+		double ans = 0;
+		for (auto [i, val] : _coefficients)
+			ans += val * pow(x, i);
+		return ans;
+	}
+
 	std::istream &operator>>(std::istream &in, Polynomial &p)
 	{
 		std::size_t degree;
