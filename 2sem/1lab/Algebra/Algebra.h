@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MATH_ALGEBRA_
+#define MATH_ALGEBRA_
+
 #include <iostream>
 #include <vector>
 #include <map>
@@ -56,3 +58,5 @@ namespace Algebra
         void fixCoefficients();
     };
 }
+
+#endif  // MATH_ALGEBRA_

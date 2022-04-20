@@ -1,4 +1,6 @@
-#pragma once
+#ifndef MATH_GEOMETRY_
+#define MATH_GEOMETRY_
+
 #include <iostream>
 #include <vector>
 
@@ -145,3 +147,5 @@ namespace Geometry
         bool isRegular() const;
     };
 }
+
+#endif  // MATH_GEOMETRY_

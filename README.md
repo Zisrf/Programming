@@ -8,7 +8,7 @@
 ### Semester 3 `OOP: C#`
 * \.\.\.
 ### Semester 2 `C++`
-* ???
+* Compile-time programming
 * Custom allocator
 * Rubik's Cube solver
 * Ring buffer
