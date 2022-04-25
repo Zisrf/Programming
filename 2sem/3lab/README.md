@@ -1,2 +1,2 @@
-## Laboratory work No. 2 "Ring buffer"
+## Laboratory work No. 3 "Ring buffer"
 #### The purpose of the work is to create a stl-compatible container, which provides full access to the end and the beginning, and also some algorithms for working with iterators
