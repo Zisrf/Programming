@@ -146,6 +146,7 @@ namespace Geometry
     private:
         bool isRegular() const;
     };
-}
+
+} // namespace Geometry
 
 #endif  // MATH_GEOMETRY_

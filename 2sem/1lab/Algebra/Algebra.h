@@ -57,6 +57,7 @@ namespace Algebra
     private:
         void fixCoefficients();
     };
-}
+
+} // namespace Algebra
 
 #endif  // MATH_ALGEBRA_
