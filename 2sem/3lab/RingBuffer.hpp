@@ -158,7 +158,7 @@ namespace ZIS
         }
         bool operator<=(const RBIterator &other) const
         {
-            return *!(*this > other);
+            return !(*this > other);
         }
 
     private:
