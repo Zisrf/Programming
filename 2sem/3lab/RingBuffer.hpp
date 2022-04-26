@@ -307,7 +307,7 @@ namespace ZIS
                 throw std::out_of_range("RingBuffer subscript out of range");
             }
         }
-        T &operator[](std::size_t index) const
+        const T &operator[](std::size_t index) const
         {
             if (_first <= _last)
             {
@@ -324,13 +324,25 @@ namespace ZIS
                 throw std::out_of_range("RingBuffer subscript out of range");
             }
         }
-        T &front() const
+        T &front()
         {
             if (size() == 0)
                 throw std::logic_error("Using front() for empty RingBuffer");
             return (*this)[0];
         }
-        T &back() const
+        const T &front() const
+        {
+            if (size() == 0)
+                throw std::logic_error("Using front() for empty RingBuffer");
+            return (*this)[0];
+        }
+        T &back()
+        {
+            if (size() == 0)
+                throw std::logic_error("Using back() for empty RingBuffer");
+            return (*this)[size() - 1];
+        }
+        const T &back() const
         {
             if (size() == 0)
                 throw std::logic_error("Using back() for empty RingBuffer");
