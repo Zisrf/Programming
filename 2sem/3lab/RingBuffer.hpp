@@ -352,6 +352,9 @@ namespace ZIS
             ++_first;
             if (_first == _data + _capacity && _first != _last)
                 _first = _data;
+
+            if (_capacity > 3 * size())
+                update_capacity();
         }
         void push_back(const T &new_value)
         {
@@ -378,6 +381,9 @@ namespace ZIS
             --_last;
             if (_last == _data && _first != _last)
                 _last = _data + _capacity;
+
+            if (_capacity > 3 * size())
+                update_capacity();
         }
 
     private:
