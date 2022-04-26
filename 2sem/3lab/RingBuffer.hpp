@@ -207,6 +207,16 @@ namespace ZIS
             _last = _data + size;
             _capacity = 2 * size + 1;
         }
+        explicit RingBuffer(std::size_t size, const T &value)
+        {
+            _data = new T[2 * size + 1];
+            _first = _data;
+            _last = _data + size;
+            _capacity = 2 * size + 1;
+
+            for (std::size_t i = 0; i < size; ++i)
+                _data[i] = value;
+        }
         RingBuffer(std::initializer_list<T> init_list)
         {
             _data = new T[init_list.size() * 2 + 1];
@@ -215,7 +225,7 @@ namespace ZIS
             _capacity = init_list.size() * 2 + 1;
 
             for (std::size_t i = 0; i < size(); ++i)
-                (*this)[i] = *(init_list.begin() + i);
+                _data[i] = *(init_list.begin() + i);
         }
         RingBuffer(const RingBuffer &other)
         {
