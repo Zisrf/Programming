@@ -44,7 +44,7 @@ namespace ZIS
                 return _ptr[index];
             if (_ptr + index < _end)
                 return _ptr[index];
-            return _first[index - (_end - _ptr)];
+            return _begin[index - (_end - _ptr)];
         }
         T &operator[](std::size_t index) const
         {
@@ -52,7 +52,7 @@ namespace ZIS
                 return _ptr[index];
             if (_ptr + index < _end)
                 return _ptr[index];
-            return _first[index - (_end - _ptr)];
+            return _begin[index - (_end - _ptr)];
         }
 
         RBIterator &operator++()
