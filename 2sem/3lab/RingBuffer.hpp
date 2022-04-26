@@ -143,9 +143,9 @@ namespace ZIS
                 throw std::logic_error("Comparing iterators of different RingBuffers");
 
             if (_first > _last && _ptr >= _first && other._ptr < _last)
-                return true;
-            if (_first > _last && _ptr < _last && other._ptr >= _first)
                 return false;
+            if (_first > _last && _ptr < _last && other._ptr >= _first)
+                return true;
             return _ptr > other._ptr;
         }
         bool operator<(const RBIterator &other) const
