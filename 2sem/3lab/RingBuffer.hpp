@@ -115,8 +115,8 @@ namespace ZIS
                 _last != other._last)
                 throw std::logic_error("Comparing iterators of different RingBuffers");
 
-            if (other._ptr > _ptr)
-                return (_end - _begin) - (_ptr - other._ptr);
+            if (_first > _last && other._ptr > _ptr)
+                return (_end - other._ptr) + (_ptr - _begin);
             return _ptr - other._ptr;
         }
 
