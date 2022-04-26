@@ -110,7 +110,7 @@ namespace ZIS
         return ++end;
     }
 
-    template <class BidirectIterator, class T>
+    template <class BidirectIterator>
     bool is_palindrome(BidirectIterator begin, BidirectIterator end)
     {
         --end;
