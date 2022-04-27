@@ -1,5 +1,5 @@
-#ifndef ALGORITHMS_
-#define ALGORITHMS_
+#ifndef TEMPLATE_ALGORITHMS_
+#define TEMPLATE_ALGORITHMS_
 
 namespace ZIS
 {
@@ -124,8 +124,8 @@ namespace ZIS
         return true;
     }
 
-    template <class InputIterator, class Function>
-    bool is_palindrome(InputIterator begin, InputIterator end, Function f)
+    template <class BidirectIterator, class Function>
+    bool is_palindrome(BidirectIterator begin, BidirectIterator end, Function f)
     {
         --end;
         while (begin < end)
@@ -140,4 +140,4 @@ namespace ZIS
 
 } // namespace ZIS
 
-#endif // ALGORITHMS_
+#endif // TEMPLATE_ALGORITHMS_
