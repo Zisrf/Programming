@@ -8,7 +8,7 @@
 ### Semester 3 `OOP: C#`
 * \.\.\.
 ### Semester 2 `C++`
-* Compile-time programming
+* [Compile-time programming](https://github.com/ZISRF/Programming/tree/master/2sem/6lab)
 * Custom allocator
 * Rubik's Cube solver
 * [Ring buffer](https://github.com/ZISRF/Programming/tree/master/2sem/3lab)
