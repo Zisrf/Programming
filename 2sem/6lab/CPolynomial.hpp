@@ -5,16 +5,16 @@
 
 namespace ZIS
 {
-    template <int X, unsigned P>
+    template <unsigned X, unsigned P>
     struct CPow
     {
-        static int const value = X * CPow<X, P - 1>::value;
+        static long long const value = X * CPow<X, P - 1>::value;
     };
 
-    template <int X>
+    template <unsigned X>
     struct CPow<X, 0>
     {
-        static int const value = 1;
+        static long long const value = 1;
     };
 
     template <int X, unsigned CurPow, int... Coefs>
@@ -23,20 +23,20 @@ namespace ZIS
     template <int X, unsigned CurPow, int CurCoef, int... OtherCoefs>
     struct CSumOfMonomials<X, CurPow, CurCoef, OtherCoefs...>
     {
-        static int const value = CurCoef * CPow<X, CurPow>::value +
-                                 CSumOfMonomials<X, CurPow + 1, OtherCoefs...>::value;
+        static long long const value = CurCoef * CPow<X, CurPow>::value +
+                                       CSumOfMonomials<X, CurPow + 1, OtherCoefs...>::value;
     };
 
     template <int X, unsigned CurPow>
     struct CSumOfMonomials<X, CurPow>
     {
-        static int const value = 0;
+        static long long const value = 0;
     };
 
     template <int X, int... Coefs>
     struct CPolynomial
     {
-        static int const value = CSumOfMonomials<X, 0, Coefs...>::value;
+        static long long const value = CSumOfMonomials<X, 0, Coefs...>::value;
     };
 
     template <int X, int CurCoef, int... OtherCoefs>
