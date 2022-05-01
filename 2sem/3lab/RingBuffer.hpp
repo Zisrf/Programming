@@ -46,7 +46,7 @@ namespace ZIS
                 return _ptr[index];
             return _begin[index - (_end - _ptr)];
         }
-        T &operator[](std::size_t index) const
+        const T &operator[](std::size_t index) const
         {
             if (_first <= _last)
                 return _ptr[index];
@@ -107,7 +107,7 @@ namespace ZIS
         {
             return *this = *this - k;
         }
-        std::size_t operator-(const RBIterator &other)
+        std::size_t operator-(const RBIterator &other) const
         {
             if (_begin != other._begin ||
                 _end != other._end ||
