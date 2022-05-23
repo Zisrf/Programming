@@ -1,5 +1,5 @@
-#ifndef RING_BUFFER_
-#define RING_BUFFER_
+#ifndef ZIS_RING_BUFFER_
+#define ZIS_RING_BUFFER_
 
 #include <initializer_list>
 #include <iterator>
@@ -432,4 +432,4 @@ namespace ZIS
 
 } // namespace ZIS
 
-#endif // RING_BUFFER_
+#endif // ZIS_RING_BUFFER_

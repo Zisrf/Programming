@@ -1,5 +1,5 @@
-#ifndef TEMPLATE_ALGORITHMS_
-#define TEMPLATE_ALGORITHMS_
+#ifndef ZIS_TEMPLATE_ALGORITHMS_
+#define ZIS_TEMPLATE_ALGORITHMS_
 
 namespace ZIS
 {
@@ -140,4 +140,4 @@ namespace ZIS
 
 } // namespace ZIS
 
-#endif // TEMPLATE_ALGORITHMS_
+#endif // ZIS_TEMPLATE_ALGORITHMS_
