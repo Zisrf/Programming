@@ -116,7 +116,7 @@ namespace ZIS
               _is_copy(true) {}
 
         template <class U>
-        PoolAllocator(const PoolAllocator<U> &other)
+        PoolAllocator(const PoolAllocator<U, ChunkSize * sizeof(T) / sizeof(U), ChunksCount> &other)
             : _chunks(reinterpret_cast<Chunk<chunk_size> *>(other.chunks())),
               _head_ptr(reinterpret_cast<Chunk<chunk_size> **>(other.head_ptr())),
               _is_copy(true) {}
