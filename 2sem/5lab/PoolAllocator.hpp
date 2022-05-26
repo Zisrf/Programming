@@ -4,7 +4,6 @@
 #include <new>
 #include <stdexcept>
 
-#define DEBUG
 #ifdef DEBUG
 #include <fstream>
 std::ofstream log("pool_allocator.log");
