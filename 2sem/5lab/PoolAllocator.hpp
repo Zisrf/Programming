@@ -16,8 +16,6 @@ namespace ZIS
     {
         Chunk *next;
         char chunk_data[Size];
-        Chunk() {}
-        ~Chunk() {}
     };
 
     template <class T, unsigned ChunkSize = 8192, unsigned ChunksCount = 8192>
