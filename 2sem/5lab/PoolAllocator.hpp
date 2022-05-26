@@ -1,9 +1,14 @@
 #ifndef ZIS_POOL_ALLOCATOR_
 #define ZIS_POOL_ALLOCATOR_
 
-#include <iostream>
 #include <new>
 #include <stdexcept>
+
+#define DEBUG
+#ifdef DEBUG
+#include <fstream>
+std::ofstream log("pool_allocator.log");
+#endif // DEBUG
 
 namespace ZIS
 {
@@ -43,6 +48,11 @@ namespace ZIS
 
             T *res = reinterpret_cast<T *>(*_head_ptr);
             *_head_ptr = (*_head_ptr)->next;
+
+#ifdef DEBUG
+            log << "Allocate at " << res << std::endl;
+#endif // DEBUG
+
             return res;
         }
 
@@ -54,6 +64,10 @@ namespace ZIS
             Chunk<chunk_size> *new_head = reinterpret_cast<Chunk<chunk_size> *>(p);
             new_head->next = *_head_ptr;
             *_head_ptr = new_head;
+
+#ifdef DEBUG
+            log << "Deallocate at " << p << std::endl;
+#endif // DEBUG
         }
 
         size_t max_size() const
@@ -86,6 +100,10 @@ namespace ZIS
             for (size_t i = 0; i < ChunksCount - 1; ++i)
                 _chunks[i].next = _chunks + i + 1;
             _chunks[ChunksCount - 1].next = nullptr;
+
+#ifdef DEBUG
+            log << "Construct from " << _chunks << " to " << _chunks + ChunksCount << std::endl;
+#endif // DEBUG
         }
 
         PoolAllocator(Chunk<chunk_size> *chunks, Chunk<chunk_size> **head_ptr)
@@ -106,8 +124,12 @@ namespace ZIS
 
         ~PoolAllocator()
         {
-            if (!_is_copy)
+            if (_chunks != nullptr && !_is_copy)
             {
+#ifdef DEBUG
+                log << "Destruct from " << _chunks << " to " << _chunks + ChunksCount << std::endl;
+#endif // DEBUG
+
                 delete[] _chunks;
                 _chunks = nullptr;
                 _head_ptr = nullptr;
@@ -131,21 +153,6 @@ namespace ZIS
         bool operator!=(const PoolAllocator &other) const
         {
             return _chunks != other._chunks;
-        }
-
-        static PoolAllocator select_on_container_copy_construction()
-        {
-            static PoolAllocator res(nullptr, nullptr);
-
-            res._chunks = new Chunk<chunk_size>[ChunksCount];
-            res._head_ptr = &res._chunks;
-            res._is_copy = false;
-
-            for (size_t i = 0; i < ChunksCount - 1; ++i)
-                res._chunks[i].next = res._chunks + i + 1;
-            res._chunks[ChunksCount - 1].next = nullptr;
-
-            return res;
         }
 
     private:
