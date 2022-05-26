@@ -81,6 +81,7 @@ namespace ZIS
 
             _chunks = new Chunk<chunk_size>[ChunksCount];
             _head_ptr = &_chunks;
+            _is_copy = false;
 
             for (size_t i = 0; i < ChunksCount - 1; ++i)
                 _chunks[i].next = _chunks + i + 1;
@@ -89,28 +90,36 @@ namespace ZIS
 
         PoolAllocator(Chunk<chunk_size> *chunks, Chunk<chunk_size> **head_ptr)
             : _chunks(chunks),
-              _head_ptr(head_ptr) {}
+              _head_ptr(head_ptr),
+              _is_copy(true) {}
 
         PoolAllocator(const PoolAllocator &other)
             : _chunks(other._chunks),
-              _head_ptr(other._head_ptr) {}
+              _head_ptr(other._head_ptr),
+              _is_copy(true) {}
 
         template <class U>
         PoolAllocator(const PoolAllocator<U> &other)
             : _chunks(reinterpret_cast<Chunk<chunk_size> *>(other.chunks())),
-              _head_ptr(reinterpret_cast<Chunk<chunk_size> **>(other.head_ptr())) {}
+              _head_ptr(reinterpret_cast<Chunk<chunk_size> **>(other.head_ptr())),
+              _is_copy(true) {}
 
         ~PoolAllocator()
         {
-            delete[] _chunks;
-            _chunks = nullptr;
-            _head_ptr = nullptr;
+            if (!_is_copy)
+            {
+                delete[] _chunks;
+                _chunks = nullptr;
+                _head_ptr = nullptr;
+            }
         }
 
         PoolAllocator &operator=(const PoolAllocator &other)
         {
+            this->~PoolAllocator();
             _chunks = other._chunks;
             _head_ptr = other._head_ptr;
+            _is_copy = true;
             return *this;
         }
 
@@ -130,6 +139,7 @@ namespace ZIS
 
             res._chunks = new Chunk<chunk_size>[ChunksCount];
             res._head_ptr = &res._chunks;
+            res._is_copy = false;
 
             for (size_t i = 0; i < ChunksCount - 1; ++i)
                 res._chunks[i].next = res._chunks + i + 1;
@@ -141,6 +151,7 @@ namespace ZIS
     private:
         Chunk<chunk_size> *_chunks;
         Chunk<chunk_size> **_head_ptr;
+        bool _is_copy;
     };
 
 } // namespace ZIS
