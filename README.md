@@ -9,7 +9,7 @@
 * \.\.\.
 ### Semester 2 `C++`
 * [Compile-time programming](https://github.com/ZISRF/Programming/tree/master/2sem/6lab)
-* Custom allocator
+* [Pool allocator](https://github.com/ZISRF/Programming/tree/master/2sem/5lab)
 * [Rubik's Cube solver](https://github.com/ZISRF/Programming/tree/master/2sem/4lab)
 * [Ring buffer](https://github.com/ZISRF/Programming/tree/master/2sem/3lab)
 * [Current exchange rate](https://github.com/ZISRF/Programming/tree/master/2sem/2lab)
