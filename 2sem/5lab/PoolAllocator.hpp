@@ -122,6 +122,9 @@ namespace ZIS
               _head_ptr(reinterpret_cast<Chunk<chunk_size> **>(other.head_ptr())),
               _count_ptr(other.count_ptr())
         {
+            if (sizeof(T) != sizeof(U))
+                throw std::logic_error("incorrect cast");
+
             *_count_ptr += 1;
         }
 
