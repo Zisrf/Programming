@@ -123,7 +123,7 @@ namespace ZIS
               _count_ptr(other.count_ptr())
         {
             if (sizeof(T) != sizeof(U))
-                throw std::logic_error("incorrect cast");
+                throw std::logic_error("incorrect pool allocators cast");
 
             *_count_ptr += 1;
         }
