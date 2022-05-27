@@ -72,14 +72,19 @@ namespace ZIS
             return ChunkSize;
         }
 
+        Chunk<chunk_size> *chunks() const
+        {
+            return _chunks;
+        }
+
         Chunk<chunk_size> **head_ptr() const
         {
             return _head_ptr;
         }
 
-        Chunk<chunk_size> *chunks() const
+        size_t *count_ptr() const
         {
-            return _chunks;
+            return _count_ptr;
         }
 
         PoolAllocator()
@@ -87,12 +92,12 @@ namespace ZIS
             if (ChunksCount == 0)
                 throw std::logic_error("incorrect chunks count");
 
-            if (chunk_size < sizeof(Chunk<chunk_size> *))
-                throw std::logic_error("too small chunk size");
-
             _chunks = new Chunk<chunk_size>[ChunksCount];
-            _head_ptr = &_chunks;
-            _is_copy = false;
+            _head_ptr = new Chunk<chunk_size> *;
+            _count_ptr = new size_t;
+
+            *_head_ptr = _chunks;
+            *_count_ptr = 1;
 
             for (size_t i = 0; i < ChunksCount - 1; ++i)
                 _chunks[i].next = _chunks + i + 1;
@@ -103,42 +108,55 @@ namespace ZIS
 #endif // DEBUG
         }
 
-        PoolAllocator(Chunk<chunk_size> *chunks, Chunk<chunk_size> **head_ptr)
-            : _chunks(chunks),
-              _head_ptr(head_ptr),
-              _is_copy(true) {}
-
         PoolAllocator(const PoolAllocator &other)
             : _chunks(other._chunks),
               _head_ptr(other._head_ptr),
-              _is_copy(true) {}
+              _count_ptr(other._count_ptr)
+        {
+            *_count_ptr += 1;
+        }
 
         template <class U>
-        PoolAllocator(const PoolAllocator<U, ChunkSize * sizeof(T) / sizeof(U), ChunksCount> &other)
+        PoolAllocator(const PoolAllocator<U, ChunkSize, ChunksCount> &other)
             : _chunks(reinterpret_cast<Chunk<chunk_size> *>(other.chunks())),
               _head_ptr(reinterpret_cast<Chunk<chunk_size> **>(other.head_ptr())),
-              _is_copy(true) {}
+              _count_ptr(other.count_ptr())
+        {
+            *_count_ptr += 1;
+        }
 
         ~PoolAllocator()
         {
-            if (_chunks != nullptr && !_is_copy)
+            if (_chunks != nullptr && *_count_ptr == 1)
             {
 #ifdef DEBUG
                 log << "Destruct from " << _chunks << " to " << _chunks + ChunksCount << std::endl;
 #endif // DEBUG
 
                 delete[] _chunks;
+                delete _head_ptr;
+                delete _count_ptr;
+
                 _chunks = nullptr;
                 _head_ptr = nullptr;
+                _count_ptr = nullptr;
+            }
+            else
+            {
+                *_count_ptr -= 1;
             }
         }
 
         PoolAllocator &operator=(const PoolAllocator &other)
         {
             this->~PoolAllocator();
+
             _chunks = other._chunks;
             _head_ptr = other._head_ptr;
-            _is_copy = true;
+            _count_ptr = other._count_ptr;
+
+            *_count_ptr += 1;
+
             return *this;
         }
 
@@ -152,10 +170,15 @@ namespace ZIS
             return _chunks != other._chunks;
         }
 
+        static PoolAllocator select_on_container_copy_construction()
+        {
+            return PoolAllocator();
+        }
+
     private:
         Chunk<chunk_size> *_chunks;
         Chunk<chunk_size> **_head_ptr;
-        bool _is_copy;
+        size_t *_count_ptr;
     };
 
 } // namespace ZIS
