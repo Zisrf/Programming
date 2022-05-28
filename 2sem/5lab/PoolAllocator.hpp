@@ -53,7 +53,7 @@ namespace ZIS
             return res;
         }
 
-        void deallocate(T *p, size_t n)
+        void deallocate(T *p, size_t n) noexcept
         {
             if (p == nullptr)
                 return;
@@ -67,22 +67,22 @@ namespace ZIS
 #endif // DEBUG
         }
 
-        size_t max_size() const
+        size_t max_size() const noexcept
         {
             return ChunkSize;
         }
 
-        Chunk<chunk_size> *chunks() const
+        const Chunk<chunk_size> *chunks() const noexcept
         {
             return _chunks;
         }
 
-        Chunk<chunk_size> **head_ptr() const
+        const Chunk<chunk_size> **head_ptr() const noexcept
         {
             return _head_ptr;
         }
 
-        size_t *count_ptr() const
+        const size_t *count_ptr() const noexcept
         {
             return _count_ptr;
         }
@@ -108,7 +108,7 @@ namespace ZIS
 #endif // DEBUG
         }
 
-        PoolAllocator(const PoolAllocator &other)
+        PoolAllocator(const PoolAllocator &other) noexcept
             : _chunks(other._chunks),
               _head_ptr(other._head_ptr),
               _count_ptr(other._count_ptr)
@@ -118,8 +118,8 @@ namespace ZIS
 
         template <class U>
         PoolAllocator(const PoolAllocator<U, ChunkSize, ChunksCount> &other)
-            : _chunks(reinterpret_cast<Chunk<chunk_size> *>(other.chunks())),
-              _head_ptr(reinterpret_cast<Chunk<chunk_size> **>(other.head_ptr())),
+            : _chunks((Chunk<chunk_size> *)other.chunks()),
+              _head_ptr((Chunk<chunk_size> **)other.head_ptr()),
               _count_ptr(other.count_ptr())
         {
             if (sizeof(T) != sizeof(U))
@@ -150,7 +150,7 @@ namespace ZIS
             }
         }
 
-        PoolAllocator &operator=(const PoolAllocator &other)
+        PoolAllocator &operator=(const PoolAllocator &other) noexcept
         {
             this->~PoolAllocator();
 
@@ -163,12 +163,12 @@ namespace ZIS
             return *this;
         }
 
-        bool operator==(const PoolAllocator &other) const
+        bool operator==(const PoolAllocator &other) const noexcept
         {
             return _chunks == other._chunks;
         }
 
-        bool operator!=(const PoolAllocator &other) const
+        bool operator!=(const PoolAllocator &other) const noexcept
         {
             return _chunks != other._chunks;
         }
