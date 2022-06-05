@@ -120,7 +120,7 @@ namespace ZIS
         PoolAllocator(const PoolAllocator<U, ChunkSize, ChunksCount> &other)
             : _chunks((Chunk<chunk_size> *)other.chunks()),
               _head_ptr((Chunk<chunk_size> **)other.head_ptr()),
-              _count_ptr(other.count_ptr())
+              _count_ptr((size_t *)other.count_ptr())
         {
             if (sizeof(T) != sizeof(U))
                 throw std::logic_error("incorrect pool allocators cast");
