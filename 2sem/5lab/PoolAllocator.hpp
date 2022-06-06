@@ -74,17 +74,17 @@ namespace ZIS
 
         const Chunk<chunk_size> *chunks() const noexcept
         {
-            return _chunks;
+            return (const Chunk<chunk_size> *)_chunks;
         }
 
         const Chunk<chunk_size> **head_ptr() const noexcept
         {
-            return _head_ptr;
+            return (const Chunk<chunk_size> **)_head_ptr;
         }
 
         const size_t *count_ptr() const noexcept
         {
-            return _count_ptr;
+            return (const size_t *)_count_ptr;
         }
 
         PoolAllocator()
@@ -117,14 +117,11 @@ namespace ZIS
         }
 
         template <class U>
-        PoolAllocator(const PoolAllocator<U, ChunkSize, ChunksCount> &other)
+        PoolAllocator(const PoolAllocator<U, ChunkSize, ChunksCount> &other) noexcept
             : _chunks((Chunk<chunk_size> *)other.chunks()),
               _head_ptr((Chunk<chunk_size> **)other.head_ptr()),
               _count_ptr((size_t *)other.count_ptr())
         {
-            if (sizeof(T) != sizeof(U))
-                throw std::logic_error("incorrect pool allocators cast");
-
             *_count_ptr += 1;
         }
 
