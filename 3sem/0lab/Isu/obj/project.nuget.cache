@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "VwzBrjeRTuXIMvMlwMq/4n0wy98s6+scka7nF2J3npGgqYPPBN5qt07f5mUug3KOrqiEtBHhe4vQ0z/HN5Cr0A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\zelen\\source\\repos\\OOP-labs\\Lab0\\Isu\\Isu.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\zelen\\.nuget\\packages\\stylecop.analyzers\\1.1.118\\stylecop.analyzers.1.1.118.nupkg.sha512"
+  ],
+  "logs": []
+}
