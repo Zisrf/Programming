@@ -12,7 +12,7 @@
 * Backups (part 1)
 * Isu (part 2)
 * Shops
-* [Isu (part 1)](https://github.com/ZISRF/Programming/tree/master/3sem/0lab)
+* Isu (part 1)
 ### Semester 2 `C++`
 * [Compile-time programming](https://github.com/ZISRF/Programming/tree/master/2sem/6lab)
 * [Pool allocator](https://github.com/ZISRF/Programming/tree/master/2sem/5lab)

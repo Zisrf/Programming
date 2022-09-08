@@ -3,5 +3,5 @@
 public enum DegreeType
 {
     Bachelor = 3,
-    Master = 4,
+    Master = 4
 }

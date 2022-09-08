@@ -20,14 +20,14 @@ public class IsuService : IIsuService
 
     public Group AddGroup(GroupName name)
     {
-        Group newGroup = new (name);
+        Group newGroup = new(name);
         _groups.Add(newGroup);
         return newGroup;
     }
 
     public Student AddStudent(Group group, string fullName)
     {
-        Student newStudent = new (_students.Count, group, fullName);
+        Student newStudent = new(_students.Count, group, fullName);
         _students.Add(newStudent);
         group.AddStudent(newStudent);
         return newStudent;
