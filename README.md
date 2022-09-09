@@ -7,12 +7,10 @@
 * \.\.\.
 ### Semester 3 `OOP: C#`
 * Message processing system
-* Backups (part 2)
 * Banks
-* Backups (part 1)
-* Isu (part 2)
+* Backups
 * Shops
-* Isu (part 1)
+* Isu
 ### Semester 2 `C++`
 * [Compile-time programming](https://github.com/ZISRF/Programming/tree/master/2sem/6lab)
 * [Pool allocator](https://github.com/ZISRF/Programming/tree/master/2sem/5lab)
