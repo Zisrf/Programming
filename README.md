@@ -10,7 +10,7 @@
 * Banks
 * Backups
 * Shops
-* Isu
+* University information system
 ### Semester 2 `C++`
 * [Compile-time programming](https://github.com/ZISRF/Programming/tree/master/2sem/6lab)
 * [Pool allocator](https://github.com/ZISRF/Programming/tree/master/2sem/5lab)
