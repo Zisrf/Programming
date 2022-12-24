@@ -6,11 +6,11 @@
 ### Semester 4 `Software design: Java`
 * \.\.\.
 ### Semester 3 `OOP: C#`
-* Message processing system
-* Banks
-* Backups
-* Shops
-* University information system
+* [Reports](https://github.com/ZISRF/Programming/tree/master/3sem/5lab)
+* [Banks](https://github.com/ZISRF/Programming/tree/master/3sem/4lab)
+* [Backups](https://github.com/ZISRF/Programming/tree/master/3sem/3lab)
+* [Shops](https://github.com/ZISRF/Programming/tree/master/3sem/2lab)
+* [Isu](https://github.com/ZISRF/Programming/tree/master/3sem/1lab)
 ### Semester 2 `C++`
 * [Compile-time programming](https://github.com/ZISRF/Programming/tree/master/2sem/6lab)
 * [Pool allocator](https://github.com/ZISRF/Programming/tree/master/2sem/5lab)
