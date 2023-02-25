@@ -4,7 +4,8 @@
 ### Semester 5 `Frontend: HTML, CSS`
 * \.\.\.
 ### Semester 4 `Software design: Java`
-* \.\.\.
+* ...
+* [Banks remake](https://github.com/ZISRF/Programming/tree/master/4sem/1lab)
 ### Semester 3 `OOP: C#`
 * [Reports](https://github.com/ZISRF/Programming/tree/master/3sem/5lab)
 * [Banks](https://github.com/ZISRF/Programming/tree/master/3sem/4lab)
