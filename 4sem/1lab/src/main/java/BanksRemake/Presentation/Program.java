@@ -1,15 +1,14 @@
-package BanksRemake.Presentation;
+package banksRemake.presentation;
 
-import BanksRemake.Domain.Clocks.FrozenTimeClock;
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
-import BanksRemake.Domain.Exceptions.InvalidBankOperationException;
-import BanksRemake.Domain.Exceptions.InvalidDepositInterestRateSelectorException;
-import BanksRemake.Domain.Exceptions.InvalidMoneyGapException;
-import BanksRemake.Domain.Services.CentralBank;
-import BanksRemake.Presentation.Handlers.*;
+import banksRemake.domain.clocks.FrozenTimeClock;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.exceptions.InvalidBankOperationException;
+import banksRemake.domain.exceptions.InvalidDepositInterestRateSelectorException;
+import banksRemake.domain.exceptions.InvalidMoneyGapException;
+import banksRemake.domain.services.CentralBank;
+import banksRemake.presentation.handlers.*;
 
 import java.time.Instant;
-import java.time.Period;
 import java.util.Date;
 import java.util.Scanner;
 

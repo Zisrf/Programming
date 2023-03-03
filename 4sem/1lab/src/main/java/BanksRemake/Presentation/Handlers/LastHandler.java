@@ -1,6 +1,6 @@
-package BanksRemake.Presentation.Handlers;
+package banksRemake.presentation.handlers;
 
-import BanksRemake.Domain.Services.CentralBank;
+import banksRemake.domain.services.CentralBank;
 
 import java.util.Scanner;
 

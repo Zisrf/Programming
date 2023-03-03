@@ -1,17 +1,17 @@
-package BanksRemake.Presentation.Handlers;
+package banksRemake.presentation.handlers;
 
-import BanksRemake.Domain.DepositInterestRateSelectors.DepositInterestRateSelectorImpl;
-import BanksRemake.Domain.Entities.Bank;
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
-import BanksRemake.Domain.Exceptions.InvalidBankOperationException;
-import BanksRemake.Domain.Exceptions.InvalidDepositInterestRateSelectorException;
-import BanksRemake.Domain.Exceptions.InvalidMoneyGapException;
-import BanksRemake.Domain.Models.BankConfigurations.BankConfiguration;
-import BanksRemake.Domain.Models.BankConfigurations.CreditBankAccountConfiguration;
-import BanksRemake.Domain.Models.BankConfigurations.DebitBankAccountConfiguration;
-import BanksRemake.Domain.Models.BankConfigurations.DepositBankAccountConfiguration;
-import BanksRemake.Domain.Models.MoneyGap;
-import BanksRemake.Domain.Services.CentralBank;
+import banksRemake.domain.depositInterestRateSelectors.DepositInterestRateSelectorImpl;
+import banksRemake.domain.entities.Bank;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.exceptions.InvalidBankOperationException;
+import banksRemake.domain.exceptions.InvalidDepositInterestRateSelectorException;
+import banksRemake.domain.exceptions.InvalidMoneyGapException;
+import banksRemake.domain.models.bankConfigurations.BankConfiguration;
+import banksRemake.domain.models.bankConfigurations.CreditBankAccountConfiguration;
+import banksRemake.domain.models.bankConfigurations.DebitBankAccountConfiguration;
+import banksRemake.domain.models.bankConfigurations.DepositBankAccountConfiguration;
+import banksRemake.domain.models.MoneyGap;
+import banksRemake.domain.services.CentralBank;
 
 import java.time.Period;
 import java.util.Scanner;

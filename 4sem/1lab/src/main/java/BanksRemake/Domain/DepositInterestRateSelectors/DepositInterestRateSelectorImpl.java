@@ -1,7 +1,7 @@
-package BanksRemake.Domain.DepositInterestRateSelectors;
+package banksRemake.domain.depositInterestRateSelectors;
 
-import BanksRemake.Domain.Exceptions.InvalidDepositInterestRateSelectorException;
-import BanksRemake.Domain.Models.MoneyGap;
+import banksRemake.domain.exceptions.InvalidDepositInterestRateSelectorException;
+import banksRemake.domain.models.MoneyGap;
 
 import java.util.ArrayList;
 import java.util.Collections;

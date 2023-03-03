@@ -1,11 +1,11 @@
-package BanksRemake.Domain.BankAccounts.Factories;
+package banksRemake.domain.bankAccounts.Factories;
 
-import BanksRemake.Domain.BankAccounts.BankAccount;
-import BanksRemake.Domain.Clocks.Clock;
-import BanksRemake.Domain.Entities.Bank;
-import BanksRemake.Domain.Entities.Client;
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
-import BanksRemake.Domain.Exceptions.InvalidBankOperationException;
+import banksRemake.domain.bankAccounts.BankAccount;
+import banksRemake.domain.clocks.Clock;
+import banksRemake.domain.entities.Bank;
+import banksRemake.domain.entities.Client;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.exceptions.InvalidBankOperationException;
 
 /**
  * An abstract factory that creates different types of bank accounts.

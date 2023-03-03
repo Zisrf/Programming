@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Exceptions;
+package banksRemake.domain.exceptions;
 
 /**
  * Basic exception for domain entities.

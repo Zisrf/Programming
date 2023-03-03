@@ -1,19 +1,19 @@
-package BanksRemake;
+package banksRemake;
 
-import BanksRemake.Domain.BankAccounts.BankAccount;
-import BanksRemake.Domain.BankAccounts.Factories.DebitBankAccountFactory;
-import BanksRemake.Domain.Clocks.FrozenTimeClock;
-import BanksRemake.Domain.DepositInterestRateSelectors.DepositInterestRateSelectorImpl;
-import BanksRemake.Domain.Entities.Bank;
-import BanksRemake.Domain.Entities.Client;
-import BanksRemake.Domain.Exceptions.*;
-import BanksRemake.Domain.Models.BankConfigurations.BankConfiguration;
-import BanksRemake.Domain.Models.BankConfigurations.CreditBankAccountConfiguration;
-import BanksRemake.Domain.Models.BankConfigurations.DebitBankAccountConfiguration;
-import BanksRemake.Domain.Models.BankConfigurations.DepositBankAccountConfiguration;
-import BanksRemake.Domain.Models.MoneyGap;
-import BanksRemake.Domain.Services.CentralBank;
-import BanksRemake.Domain.Transactions.Transaction;
+import banksRemake.domain.bankAccounts.BankAccount;
+import banksRemake.domain.bankAccounts.Factories.DebitBankAccountFactory;
+import banksRemake.domain.clocks.FrozenTimeClock;
+import banksRemake.domain.depositInterestRateSelectors.DepositInterestRateSelectorImpl;
+import banksRemake.domain.entities.Bank;
+import banksRemake.domain.entities.Client;
+import banksRemake.domain.exceptions.*;
+import banksRemake.domain.models.bankConfigurations.BankConfiguration;
+import banksRemake.domain.models.bankConfigurations.CreditBankAccountConfiguration;
+import banksRemake.domain.models.bankConfigurations.DebitBankAccountConfiguration;
+import banksRemake.domain.models.bankConfigurations.DepositBankAccountConfiguration;
+import banksRemake.domain.models.MoneyGap;
+import banksRemake.domain.services.CentralBank;
+import banksRemake.domain.transactions.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -36,7 +36,7 @@ public class BanksTest {
     }
 
     @Test
-    public void timePassed_interestAccrues() throws InvalidBankOperationException, InvalidBankAccountOperationException, InvalidMoneyGapException, InvalidDepositInterestRateSelectorException {
+    public void whenTimePassed_thenInterestAccrues() throws InvalidBankOperationException, InvalidBankAccountOperationException, InvalidMoneyGapException, InvalidDepositInterestRateSelectorException {
         var creditConfiguration = new CreditBankAccountConfiguration(10, 100, 1);
         var depositConfiguration = new DepositBankAccountConfiguration(10, Period.ofDays(1), DepositInterestRateSelectorImpl.getBuilder().addMoneyGap(new MoneyGap(1, 2, 0)).build());
         var debitConfiguration = new DebitBankAccountConfiguration(10, 0.05);
@@ -56,7 +56,7 @@ public class BanksTest {
     }
 
     @Test
-    public void cancelTransaction_moneyBack() throws InvalidBankOperationException, InvalidBankAccountOperationException, InvalidTransactionOperationException, InvalidMoneyGapException, InvalidDepositInterestRateSelectorException {
+    public void whenCancelTransaction_thenMoneyBack() throws InvalidBankOperationException, InvalidBankAccountOperationException, InvalidTransactionOperationException, InvalidMoneyGapException, InvalidDepositInterestRateSelectorException {
         double moneyBefore1 = 3;
         double moneyBefore2 = 2;
         double transactionSum = 1;

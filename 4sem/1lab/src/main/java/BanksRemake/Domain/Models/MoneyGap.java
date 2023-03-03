@@ -1,6 +1,6 @@
-package BanksRemake.Domain.Models;
+package banksRemake.domain.models;
 
-import BanksRemake.Domain.Exceptions.InvalidMoneyGapException;
+import banksRemake.domain.exceptions.InvalidMoneyGapException;
 import lombok.Getter;
 
 /**

@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Exceptions;
+package banksRemake.domain.exceptions;
 
 public class InvalidBankOperationException extends BanksRemakeException {
     private InvalidBankOperationException(String message) {

@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Exceptions;
+package banksRemake.domain.exceptions;
 
 public class InvalidMoneyGapException extends BanksRemakeException {
     private InvalidMoneyGapException(String message) {

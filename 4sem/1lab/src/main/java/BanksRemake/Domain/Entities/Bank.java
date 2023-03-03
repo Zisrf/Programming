@@ -1,12 +1,12 @@
-package BanksRemake.Domain.Entities;
+package banksRemake.domain.entities;
 
-import BanksRemake.Domain.BankAccounts.BankAccount;
-import BanksRemake.Domain.BankAccounts.Factories.BankAccountFactory;
-import BanksRemake.Domain.Clocks.Clock;
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
-import BanksRemake.Domain.Exceptions.InvalidBankOperationException;
-import BanksRemake.Domain.Models.BankConfigurations.BankConfiguration;
-import BanksRemake.Domain.Services.CentralBank;
+import banksRemake.domain.bankAccounts.BankAccount;
+import banksRemake.domain.bankAccounts.Factories.BankAccountFactory;
+import banksRemake.domain.clocks.Clock;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.exceptions.InvalidBankOperationException;
+import banksRemake.domain.models.bankConfigurations.BankConfiguration;
+import banksRemake.domain.services.CentralBank;
 import lombok.Getter;
 
 import java.util.ArrayList;

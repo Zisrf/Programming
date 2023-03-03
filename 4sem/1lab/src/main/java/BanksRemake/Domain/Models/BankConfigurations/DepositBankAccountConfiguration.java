@@ -1,6 +1,6 @@
-package BanksRemake.Domain.Models.BankConfigurations;
+package banksRemake.domain.models.bankConfigurations;
 
-import BanksRemake.Domain.DepositInterestRateSelectors.DepositInterestRateSelector;
+import banksRemake.domain.depositInterestRateSelectors.DepositInterestRateSelector;
 
 import java.time.Period;
 

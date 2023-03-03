@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Models;
+package banksRemake.domain.models;
 
 /**
  * Set of possible transaction statuses.

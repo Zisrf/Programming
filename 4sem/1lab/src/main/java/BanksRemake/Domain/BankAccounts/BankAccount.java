@@ -1,7 +1,7 @@
-package BanksRemake.Domain.BankAccounts;
+package banksRemake.domain.bankAccounts;
 
-import BanksRemake.Domain.Entities.Client;
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.entities.Client;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
 
 import java.util.UUID;
 

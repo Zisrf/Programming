@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Models.BankConfigurations;
+package banksRemake.domain.models.bankConfigurations;
 
 /**
  * A set of parameters characterizing the debit account.

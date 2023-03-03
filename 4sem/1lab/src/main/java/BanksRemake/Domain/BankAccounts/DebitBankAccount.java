@@ -1,11 +1,11 @@
-package BanksRemake.Domain.BankAccounts;
+package banksRemake.domain.bankAccounts;
 
-import BanksRemake.Domain.Clocks.Clock;
-import BanksRemake.Domain.Clocks.ClockSubscriber;
-import BanksRemake.Domain.Entities.Bank;
-import BanksRemake.Domain.Entities.Client;
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
-import BanksRemake.Domain.Models.BankConfigurations.DebitBankAccountConfiguration;
+import banksRemake.domain.clocks.Clock;
+import banksRemake.domain.clocks.ClockSubscriber;
+import banksRemake.domain.entities.Bank;
+import banksRemake.domain.entities.Client;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.models.bankConfigurations.DebitBankAccountConfiguration;
 
 import java.util.UUID;
 

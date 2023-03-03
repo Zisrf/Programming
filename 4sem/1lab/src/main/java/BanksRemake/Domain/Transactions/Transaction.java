@@ -1,8 +1,8 @@
-package BanksRemake.Domain.Transactions;
+package banksRemake.domain.transactions;
 
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
-import BanksRemake.Domain.Exceptions.InvalidTransactionOperationException;
-import BanksRemake.Domain.Models.TransactionStatus;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.exceptions.InvalidTransactionOperationException;
+import banksRemake.domain.models.TransactionStatus;
 
 import java.util.UUID;
 

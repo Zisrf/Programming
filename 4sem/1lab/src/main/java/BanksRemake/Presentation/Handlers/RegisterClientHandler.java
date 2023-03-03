@@ -1,12 +1,12 @@
-package BanksRemake.Presentation.Handlers;
+package banksRemake.presentation.handlers;
 
-import BanksRemake.Domain.Entities.Bank;
-import BanksRemake.Domain.Entities.Client;
-import BanksRemake.Domain.Exceptions.InvalidBankAccountOperationException;
-import BanksRemake.Domain.Exceptions.InvalidBankOperationException;
-import BanksRemake.Domain.Exceptions.InvalidDepositInterestRateSelectorException;
-import BanksRemake.Domain.Exceptions.InvalidMoneyGapException;
-import BanksRemake.Domain.Services.CentralBank;
+import banksRemake.domain.entities.Bank;
+import banksRemake.domain.entities.Client;
+import banksRemake.domain.exceptions.InvalidBankAccountOperationException;
+import banksRemake.domain.exceptions.InvalidBankOperationException;
+import banksRemake.domain.exceptions.InvalidDepositInterestRateSelectorException;
+import banksRemake.domain.exceptions.InvalidMoneyGapException;
+import banksRemake.domain.services.CentralBank;
 
 import java.util.Scanner;
 import java.util.UUID;

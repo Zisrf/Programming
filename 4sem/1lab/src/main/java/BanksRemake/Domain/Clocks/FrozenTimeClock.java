@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Clocks;
+package banksRemake.domain.clocks;
 
 import java.time.Period;
 import java.time.ZoneId;

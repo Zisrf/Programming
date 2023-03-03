@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Exceptions;
+package banksRemake.domain.exceptions;
 
 public class InvalidDepositInterestRateSelectorException extends BanksRemakeException {
     public InvalidDepositInterestRateSelectorException(String message) {

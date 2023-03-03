@@ -1,6 +1,6 @@
-package BanksRemake.Domain.DepositInterestRateSelectors;
+package banksRemake.domain.depositInterestRateSelectors;
 
-import BanksRemake.Domain.Models.MoneyGap;
+import banksRemake.domain.models.MoneyGap;
 
 import java.util.List;
 

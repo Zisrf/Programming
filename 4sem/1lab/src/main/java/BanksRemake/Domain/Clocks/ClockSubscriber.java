@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Clocks;
+package banksRemake.domain.clocks;
 
 /**
  * An object that responds to clock notifications.

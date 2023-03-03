@@ -1,10 +1,10 @@
-package BanksRemake.Domain.BankAccounts.Factories;
+package banksRemake.domain.bankAccounts.Factories;
 
-import BanksRemake.Domain.BankAccounts.BankAccount;
-import BanksRemake.Domain.BankAccounts.DebitBankAccount;
-import BanksRemake.Domain.Clocks.Clock;
-import BanksRemake.Domain.Entities.Bank;
-import BanksRemake.Domain.Entities.Client;
+import banksRemake.domain.bankAccounts.BankAccount;
+import banksRemake.domain.bankAccounts.DebitBankAccount;
+import banksRemake.domain.clocks.Clock;
+import banksRemake.domain.entities.Bank;
+import banksRemake.domain.entities.Client;
 
 /**
  * Factory creating debit bank accounts.

@@ -1,4 +1,4 @@
-package BanksRemake.Domain.Entities;
+package banksRemake.domain.entities;
 
 import lombok.Getter;
 import lombok.Setter;
