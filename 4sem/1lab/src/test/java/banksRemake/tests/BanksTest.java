@@ -1,4 +1,4 @@
-package banksRemake;
+package banksRemake.tests;
 
 import banksRemake.domain.bankAccounts.BankAccount;
 import banksRemake.domain.bankAccounts.Factories.DebitBankAccountFactory;

@@ -12,7 +12,7 @@ import java.time.Instant;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Program {
+public class Main {
     public static void main(String[] args) {
         try {
             startApp();
