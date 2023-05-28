@@ -4,7 +4,8 @@
 ### Semester 5 `Frontend: HTML, CSS`
 * \.\.\.
 ### Semester 4 `Software design: Java`
-* [Friendly pusses](https://github.com/ZISRF/Programming/tree/master/4sem/2lab)
+* [Friendly pusses (microservices)](https://github.com/ZISRF/Programming/tree/master/4sem/3lab)
+* [Friendly pusses (monolith)](https://github.com/ZISRF/Programming/tree/master/4sem/2lab)
 * [Banks remake](https://github.com/ZISRF/Programming/tree/master/4sem/1lab)
 ### Semester 3 `OOP: C#`
 * [Reports](https://github.com/ZISRF/Programming/tree/master/3sem/5lab)
