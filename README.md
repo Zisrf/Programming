@@ -6,7 +6,7 @@
 ### Semester 4 `Software design: Java`
 * [Friendly pusses (microservices)](https://github.com/ZISRF/Programming/tree/master/4sem/3lab)
 * [Friendly pusses (monolith)](https://github.com/ZISRF/Programming/tree/master/4sem/2lab)
-* [Banks remake](https://github.com/ZISRF/Programming/tree/master/4sem/1lab)
+* [Banks (remake)](https://github.com/ZISRF/Programming/tree/master/4sem/1lab)
 ### Semester 3 `OOP: C#`
 * [Reports](https://github.com/ZISRF/Programming/tree/master/3sem/5lab)
 * [Banks](https://github.com/ZISRF/Programming/tree/master/3sem/4lab)
