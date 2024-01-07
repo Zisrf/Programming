@@ -1,1 +1,2 @@
-# Зеленин Иван Сергеевич 336579
+## Laboratory work No. 1 "Workout Diary client"
+#### The purpose of the work is to crate Workout Diary frontend
