@@ -1,0 +1,53 @@
+header {
+    background-color: gainsboro;
+    padding: 5px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+main section {
+    padding: 7px;
+    margin-top: 10px;
+    max-height: 300px;
+}
+
+footer {
+    background-color: gainsboro;
+    padding: 3px;
+}
+
+#create-workout-button {
+    width: 150px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10;
+    background-color: color(srgb 0.3 0.3 0.3);
+    color: white;
+    border-radius: 5px;
+}
+
+.form #create-workout-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.activity-input {
+    background-color: color(srgb 0.3 0.3 0.3);
+    border-radius: 3px;
+    padding: 5px;
+    margin-top: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    min-width: 10%;
+    display: inline-block;
+}

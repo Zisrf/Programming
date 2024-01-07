@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="js/util/loading-time.js"></script>
+    <title>Workout Diary</title>
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="logo">
+            <div class="first-word">Workout</div>
+            Diary
+        </div>
+        <ul>
+            <li>
+                <a class="current" href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="workouts.html">Workouts</a>
+            </li>
+            <li>
+                <a href="exercises.html">Exercises</a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <header>
+            <h2>Home</h2>
+            <p>Some basic information</p>
+        </header>
+
+        <main>
+            <section class="last-workout">
+                <h3>Last workout</h3>
+                <p>11.09.2023</p>
+                <ol>
+                    <li class="exercise">Bench press - 45 kg × 3 × 6</li>
+                    <li class="exercise">Squats - 60 kg × 3 × 8</li>
+                    <li class="exercise">Pull-ups - 0 kg × 1 × 12</li>
+                    <li class="exercise">Seated dumbbell press - 10 kg × 3 × 11</li>
+                    <li class="exercise">Barbell curl - 25 kg × 3 × 9</li>
+                    <li class="exercise">French press - 30 rg × 3 × 7</li>
+                </ol>
+            </section>
+
+            <div class="stats">
+                <section class="favourite-exercise">
+                    <h3>Favourite exercises</h3>
+                    <img src="../docs/exercises.png" />
+                </section>
+
+                <section class="tonnage">
+                    <h3>Workouts tonnage</h3>
+                    <img src="../docs/plot.png" />
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <div id="loading-time">Loading time: undefined</div>
+        </footer>
+    </div>
+    <script src="js/util/loading-time.js"></script>
+</body>
+
+</html>

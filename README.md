@@ -1,8 +1,8 @@
 ## My laboratory works on programming at [ITMO University](https://itmo.ru)
 ### Semester 6 `Backend: JavaScript`
 * \.\.\.
-### Semester 5 `Frontend: HTML, CSS`
-* \.\.\.
+### Semester 5 `Frontend: HTML, CSS, JavaScript`
+* [Workout Diary client](https://github.com/ZISRF/Programming/tree/master/5sem/1lab)
 ### Semester 4 `Software design: Java`
 * [Friendly pusses (microservices)](https://github.com/ZISRF/Programming/tree/master/4sem/3lab)
 * [Friendly pusses (monolith)](https://github.com/ZISRF/Programming/tree/master/4sem/2lab)

@@ -1,0 +1,73 @@
+header {
+    background-color: gainsboro;
+    padding: 5px;
+    padding-left: 15px;
+}
+
+main {
+    background-color: lightgrey;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+main section {
+    padding: 7px;
+}
+
+footer {
+    background-color: gainsboro;
+    padding: 3px;
+}
+
+.last-workout {
+    color: white;
+    background-color: color(srgb 0.3 0.3 0.3);
+    border-radius: 10px;
+}
+
+.last-workout ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+.exercise {
+    color: #000;
+    background-color: whitesmoke;
+    padding: 3px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+
+.favourite-exercise {
+    margin-left: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+img {
+    height: auto;
+    width: 100%;
+}
+
+.tonnage {
+    margin-left: 10px;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+@media (max-width: 600px) {
+    main {
+        display: block;
+    }
+
+    .favourite-exercise {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    .tonnage {
+        margin-left: 0px;
+    }
+}

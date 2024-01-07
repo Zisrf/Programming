@@ -1,0 +1,61 @@
+header {
+    background-color: gainsboro;
+    padding: 5px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    background-color: lightgrey;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 20em 20em 20em;
+}
+
+main section {
+    padding: 7px;
+    margin-top: 10px;
+    max-height: 300px;
+}
+
+footer {
+    background-color: gainsboro;
+    padding: 3px;
+}
+
+#create-workout-button {
+    width: 90px;
+    height: 24px;
+    margin-top: 23px;
+    margin-left: 20px;
+    background-color: color(srgb 0.3 0.3 0.3);
+    color: white;
+    border-radius: 5px;
+}
+
+.workout {
+    color: white;
+    background-color: color(srgb 0.3 0.3 0.3);
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+.workout ol {
+    list-style: none;
+    padding-left: 0;
+}
+
+.exercise {
+    color: #000;
+    background-color: whitesmoke;
+    padding: 3px;
+    margin-bottom: 3px;
+    border-radius: 3px;
+}
+
+@media (max-width: 600px) {
+    main {
+        display: block;
+    }
+}

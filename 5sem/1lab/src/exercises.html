@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="stylesheet" type="text/css" href="css/exercises.css" />
+    <script src="js/exercises.js"></script>
+    <title>Exercises</title>
+</head>
+
+<body>
+    <div class="sidenav">
+        <div class="logo">
+            <div class="first-word">Workout</div>
+            Diary
+        </div>
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="workouts.html">Workouts</a>
+            </li>
+            <li>
+                <a class="current" href="exercises.html">Exercises</a>
+            </li>
+            <li>
+                <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Privacy</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <header>
+            <h2>Exercises</h2>
+            <button id="reload-exercises-button" onclick="onReloadExercisesClicked()">Reload</button>
+        </header>
+
+        <main>
+            <div id="loading-animation" >
+                <img src="img/loading.gif" alt="Loading">
+            </div>
+            <div id="error-picture" class="hiden-element">
+                <img src="img/error.png" alt="Error">
+                <div id="error-message">Something went wrong!</div>
+            </div>
+            <div id="exercises-list">
+                <section class="exercise">
+                    <h3 class="exercise-name">Bench press</h3>
+                    <div class="exercise-description">...</div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <div id="loading-time">Loading time: undefined</div>
+        </footer>
+    </div>
+    <script src="js/util/loading-time.js"></script>
+</body>
+
+</html>

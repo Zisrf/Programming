@@ -1,0 +1,59 @@
+header {
+    background-color: gainsboro;
+    padding: 5px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+}
+
+main {
+    background-color: lightgrey;
+    padding: 10px;
+}
+
+main section {
+    padding: 7px;
+    margin-top: 10px;
+}
+
+footer {
+    background-color: gainsboro;
+    padding: 3px;
+}
+
+#reload-exercises-button {
+    width: 90px;
+    height: 24px;
+    margin-top: 23px;
+    margin-left: 20px;
+    background-color: color(srgb 0.3 0.3 0.3);
+    color: white;
+    border-radius: 5px;
+}
+
+.exercise {
+    color: white;
+    background-color: color(srgb 0.3 0.3 0.3);
+    border-radius: 10px;
+    margin-right: 10px;
+}
+
+#loading-animation img {
+    height: auto; 
+    max-width: 10%;
+    padding-left: 45%;
+}
+
+#error-picture img {
+    height: auto; 
+    max-width: 20%;
+    padding-left: 40%;
+}
+
+#error-message {
+    padding-left: 43%;
+}
+
+.hiden-element {
+    display: none;
+}
